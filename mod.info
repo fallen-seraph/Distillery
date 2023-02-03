@@ -1,0 +1,6 @@
+name=BaconStill
+id=BaconStill
+description=Mods and Adjustments used by A Path Above server.
+poster=poster.png
+pack=distillery_tileset_01
+tiledef=distillerytiledefs 643
