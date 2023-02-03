@@ -55,11 +55,14 @@ end
 function SDistillerySystem:distill()
     local maxTankAmount = SandboxVars.Distillery.maxTankAmount
     local amountPerProcess = SandboxVars.Distillery.maxTankAmount / SandboxVars.Distillery.processTime
+    local currentPower = false
 
     for i=1,self.system:getObjectCount() do
         local still = self.system:getObjectByIndex(i-1):getModData()
         
-        local currentPower = SDistillerySystem:checkPower(still)
+        if still:getIsoObject() ~= nil then
+            currentPower = SDistillerySystem:checkPower(still)
+        end
 
         if still.active and still.input > 0 then
             if currentPower then
