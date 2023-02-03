@@ -13,10 +13,5 @@ local function patch(class,method,patchFn)
     class[method] = patchFn(class[method])
 end
 
-DistilleryUtilities.patchClassMetaMethod(zombie.inventory.types.DrainableComboItem.class,"DoTooltip",DistilleryMenu.DoTooltip_patch)
-
-require "ISUI/ISInventoryPane"
-patch(ISInventoryPane,"drawItemDetails",DistilleryMenu.ISInventoryPane_drawItemDetails_patch)
-
 require "Moveables/ISMoveablesAction"
 wrap(ISMoveablesAction,"perform",CDistillerySystem.onMoveablesAction,nil)
